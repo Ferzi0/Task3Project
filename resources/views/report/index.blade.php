@@ -7,6 +7,10 @@
     @vite(['resources/css/style.css', 'resources/js/app.js'])
 </head>
 <body>
+
+
+
+
     <header>
         <img src="{{ Vite::asset('/resources/img/narusheniynet.svg') }}">
         <div class="user-menu">
@@ -19,7 +23,28 @@
         </div>
     </header>
     <main>
-
+        @foreach ($reports as $report)
+        <div>
+            <tr>
+                <th>
+                    {{$report->number}}
+                </th>
+                <td>
+                    {{$report->description}}
+                </td>
+                <td>
+                    {{$report->create_at->format('d.m.Y H:i')}}
+                </td>
+            </tr>
+            <form method="POST" action="{{route('report.destroy', $products->id)}}">
+                @csrf
+                @method('delete')
+                <input type="submit" value="Удалить">
+            </form>
+            <a href="{{route('report.edit', $product->id)}}">Редактировать</a>
+            <hr>
+        </div>
+        @endforeach
     </main>
     
     <footer>
