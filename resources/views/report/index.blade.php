@@ -33,15 +33,15 @@
                     {{$report->description}}
                 </td>
                 <td>
-                    {{$report->create_at->format('d.m.Y H:i')}}
+                    {{$report->created_at->format('d.m.Y H:i')}}
                 </td>
             </tr>
-            <form method="POST" action="{{route('report.destroy', $products->id)}}">
-                @csrf
+            <form method="POST" action="{{route('reports.destroy', $report->id)}}">
                 @method('delete')
+                @csrf
                 <input type="submit" value="Удалить">
             </form>
-            <a href="{{route('report.edit', $product->id)}}">Редактировать</a>
+            <a href="{{route('reports.edit', $report->id)}}">Редактировать</a>
             <hr>
         </div>
         @endforeach
