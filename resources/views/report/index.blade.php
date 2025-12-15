@@ -7,16 +7,13 @@
     @vite(['resources/css/style.css', 'resources/js/app.js'])
 </head>
 <body>
-
-
-
-
     <header>
         <img src="{{ Vite::asset('/resources/img/narusheniynet.svg') }}">
         <div class="user-menu">
             <div class="user-name">
                 Торгашов Эдуард
             </div>
+            <a href="{{ route('reports.create') }}">Создать</a>
             <div class="menu-list">
                 <a href="#">Выйти</a>
             </div>
