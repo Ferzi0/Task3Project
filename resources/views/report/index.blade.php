@@ -32,6 +32,9 @@
                 <td>
                     {{$report->created_at->format('d.m.Y H:i')}}
                 </td>
+                <td>
+                    {{$report->status->name}}
+                </td>
             </tr>
             <form method="POST" action="{{route('reports.destroy', $report->id)}}">
                 @method('delete')
