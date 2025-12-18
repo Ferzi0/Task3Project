@@ -7,6 +7,7 @@
     @vite(['resources/css/style.css', 'resources/js/app.js'])
 </head>
 <body>
+<x-app-layout>
     <div>
         <h1>Создание заявления</h1>
         <form action="{{route('reports.store') }}" method="POST"> 
@@ -31,5 +32,6 @@
             </div>
         </form>
     </div>
+</x-app-layout>
 </body>
 </html>

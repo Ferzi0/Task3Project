@@ -7,6 +7,7 @@
     @vite(['resources/css/style.css', 'resources/js/app.js'])
 </head>
 <body>
+    <x-app-layout>
     <header>
         <img src="{{ Vite::asset('/resources/img/narusheniynet.svg') }}">
         <div class="user-menu">
@@ -71,5 +72,6 @@
     <footer>
 
     </footer>
+        </x-app-layout>
 </body>
 </html>
