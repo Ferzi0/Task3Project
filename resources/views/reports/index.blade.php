@@ -18,6 +18,26 @@
                 <a href="#">Выйти</a>
             </div>
         </div>
+        <div class="options">
+            <div class="sort">
+                <span>Сортировка по дате создания: </span>
+                <a href="{{route('reports.index', ['sort' => 'desc', 'status' => $status]) }}">Сначала новые</a>
+                <a href="{{route('reports.index', ['sort' => 'asc', 'status' => $status]) }}">Сначала старые</a>
+            </div>
+            <div class="filters">
+                <p>Фильтрация по статусу заявки</p>
+                <ul>
+                    @foreach($statuses as $status)
+                    <li>
+                        <a href="{{route('reports.index', ['sort' => $sort, 'status' => $status->id]) }}">
+                            {{$status->name}}
+                        </a>
+                    </li>
+                    @endforeach
+                </ul>
+            </div>
+            
+        </div>
     </header>
     <main>
         @foreach ($reports as $report)
@@ -45,6 +65,7 @@
             <hr>
         </div>
         @endforeach
+        {{$reports->links()}}
     </main>
     
     <footer>
